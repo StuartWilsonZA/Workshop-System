@@ -1,0 +1,99 @@
+
+form { 		float: right;
+		border: 1px solid #ddd; 
+		padding: 30px 40px 20px 40px; 
+		margin: 75px 0 0 0;
+		width: 900px;
+		background: #fff;
+		/* -- CSS3 - define rounded corners for the form -- */	
+		-webkit-border-radius: 10px;
+		-moz-border-radius: 10px;
+		border-radius: 10px; 		
+		/* -- CSS3 - create a background graident -- */
+		background: -webkit-gradient(linear, 0% 0%, 0% 40%, from(#EEE), to(#FFFFFF)); 
+		background: -moz-linear-gradient(0% 40% 90deg,#FFF, #EEE); 
+		/* -- CSS3 - add a drop shadow -- */
+		-webkit-box-shadow:0px 0 50px #ccc;
+		-moz-box-shadow:0px 0 50px #ccc; 
+		box-shadow:0px 0 50px #ccc;}	
+	
+input:hover, textarea:hover { 
+		background: #eee;}
+
+		
+input.submit { 	width: 150px; 
+		color: #eee; 
+		text-transform: uppercase; 
+		margin-top: 10px;
+		background-color: #18a5cc;
+		border: none;
+		/* -- CSS3 Transition - define which property to animate (i.e. the shadow)  -- */
+		-webkit-transition: -webkit-box-shadow 0.3s linear;
+		/* -- CSS3 - Rounded Corners -- */
+		-moz-border-radius: 4px; 
+		-webkit-border-radius: 4px;
+		border-radius: 4px;		
+		/* -- CSS3 Shadow - create a shadow around each input element -- */ 
+		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#18a5cc), to(#0a85a8)); 
+		background: -moz-linear-gradient(25% 75% 90deg,#0a85a8, #18a5cc);} 
+	
+input.submit:hover { 		
+		-webkit-box-shadow: 0px 0px 20px #555;
+		-moz-box-shadow: 0px 0px 20px #aaa; 
+		box-shadow: 0px 0px 20px #555;	
+		cursor:  pointer; } 
+
+html,body{      vertical-align: middle;
+                padding:0px;
+                margin:auto;
+                display: table;
+                height:100%;
+                background: #f5f5f5; 	
+                color: #555;	 
+                font-family: 'Yanone Kaffeesatz', arial, sans-serif;}
+
+
+
+
+h2 {            color: #555; margin: 0 0 20px 0;}
+
+label {width: 200px;display: inline-block;font-size: 20px;color: #666; }
+h1 {color: #18a5cc;}
+
+
+.datagrid table { border-collapse: collapse; text-align: center; width: 100%; }
+.datagrid {font: normal 13px/150% Arial, Helvetica, sans-serif; background: #fff; overflow: hidden; border: 1px solid #006699; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 1px; }
+.datagrid table td, .datagrid table th { padding: 2px 10px; }
+
+.datagrid1 table { border-collapse: collapse; text-align: center; width: 100%; }
+.datagrid1 {font: normal 13px/150% Arial, Helvetica, sans-serif; background: #fff; overflow: hidden; border: 0px solid #006699; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 1px; }
+.datagrid1 table td, .datagrid table th { padding: 2px 10px; }
+
+.menu {text-align: center;}
+.menu1 {text-align: left;}
+.menu2 {text-align: right;}
+
+
+.bold {font-weight: bold;}
+
+button { 	width: 150px; 
+		color: #eee; 
+		text-transform: uppercase; 
+		margin-top: 10px;
+		background-color: #18a5cc;
+		border: none;
+		/* -- CSS3 Transition - define which property to animate (i.e. the shadow)  -- */
+		-webkit-transition: -webkit-box-shadow 0.3s linear;
+		/* -- CSS3 - Rounded Corners -- */
+		-moz-border-radius: 4px; 
+		-webkit-border-radius: 4px;
+		border-radius: 4px;		
+		/* -- CSS3 Shadow - create a shadow around each input element -- */ 
+		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#18a5cc), to(#0a85a8)); 
+		background: -moz-linear-gradient(25% 75% 90deg,#0a85a8, #18a5cc);} 
+	
+button:hover { 		
+		-webkit-box-shadow: 0px 0px 20px #555;
+		-moz-box-shadow: 0px 0px 20px #aaa; 
+		box-shadow: 0px 0px 20px #555;	
+		cursor:  pointer; } 
