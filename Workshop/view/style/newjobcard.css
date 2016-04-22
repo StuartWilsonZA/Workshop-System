@@ -1,0 +1,127 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 22, 2016, 8:36:43 AM
+    Author     : Stu
+*/
+form { 		float: left;
+		border: 1px solid #ddd; 
+		padding: 30px 40px 20px 40px; 
+		margin: 75px 0 0 0;
+		width: 900px;
+		background: #fff;
+		/* -- CSS3 - define rounded corners for the form -- */	
+		-webkit-border-radius: 10px;
+		-moz-border-radius: 10px;
+		border-radius: 10px; 		
+		/* -- CSS3 - create a background graident -- */
+		background: -webkit-gradient(linear, 0% 0%, 0% 40%, from(#EEE), to(#FFFFFF)); 
+		background: -moz-linear-gradient(0% 40% 90deg,#FFF, #EEE); 
+		/* -- CSS3 - add a drop shadow -- */
+		-webkit-box-shadow:0px 0 50px #ccc;
+		-moz-box-shadow:0px 0 50px #ccc; 
+		box-shadow:0px 0 50px #ccc;}	
+	
+input:hover, textarea:hover { 
+		background: #eee;}
+
+		
+input.submit { 	width: 150px; 
+		color: #eee; 
+		text-transform: uppercase; 
+		margin-top: 10px;
+		background-color: #18a5cc;
+		border: none;
+		/* -- CSS3 Transition - define which property to animate (i.e. the shadow)  -- */
+		-webkit-transition: -webkit-box-shadow 0.3s linear;
+		/* -- CSS3 - Rounded Corners -- */
+		-moz-border-radius: 4px; 
+		-webkit-border-radius: 4px;
+		border-radius: 4px;		
+		/* -- CSS3 Shadow - create a shadow around each input element -- */ 
+		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#18a5cc), to(#0a85a8)); 
+		background: -moz-linear-gradient(25% 75% 90deg,#0a85a8, #18a5cc);} 
+	
+input.submit:hover { 		
+		-webkit-box-shadow: 0px 0px 20px #555;
+		-moz-box-shadow: 0px 0px 20px #aaa; 
+		box-shadow: 0px 0px 20px #555;	
+		cursor:  pointer; } 
+
+html,body{      vertical-align: middle;
+                padding:0px;
+                margin:auto;
+                display: table;
+                height:100%;
+                background: #f5f5f5; 	
+                color: #555;	 
+                font-family: 'Yanone Kaffeesatz', arial, sans-serif;}
+
+
+
+h1 {color: #18a5cc;}
+h2 {color: #555; margin: 0 0 10px 0;}
+h3 {color: #555; margin: 0 0 0 0;}
+/*Job Card block */
+
+label {width: 100px;display: inline-block;font-size: small;color: #666; }
+.custnamelabel {width:100px;}
+.custnametextbox {height: 12px;margin-top: 1px; }
+
+.partstextbox {height: 12px; margin-right: 20px; margin-top: 2px;}
+.qtytextbox{height: 12px; margin-right: 20px; width: 20px; margin-top: 2px; }
+.amounttextbox{height: 12px; margin-right: 20px; margin-top: 2px;}
+
+.qtyheading{text-align: center;font-weight:bold;margin-right:20px;}
+.amountheading {text-align: right;font-weight:bold;}
+.partsheading {font-weight:bold; text-align: left;margin-right:80px;}
+
+.border0 {border: 1px solid #808080; padding: 5px; width: 590px; float: left;margin-top:2px; }
+.border1 {border: 0px solid #808080; padding: 5px; width: 278px; float: left; }
+.border2 {border: 0px solid #808080; padding: 5px; margin-left: 12px; width: 278px; float: left;   }
+.border3 {border: 1px solid #808080; padding: 5px; width: 590px; margin-top:1px; text-align: center;   }
+.border4 {border: 1px solid #808080; padding: 5px; width: 590px; margin-top:5px;  }
+.border5 {border: 1px solid #808080; padding: 5px; margin-top:1px; text-align: left; margin-left:605px;margin-bottom:-117px;  }
+
+.quanlabel {width: 30px;display: inline-block;font-size: small;color: #666; }
+
+
+.datagrid table { border-collapse: collapse; text-align: center; width: 100%; }
+.datagrid {font: normal 13px/150% Arial, Helvetica, sans-serif; background: #fff; overflow: hidden; border: 1px solid #006699; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 1px; }
+.datagrid table td, .datagrid table th { padding: 2px 10px; }
+
+.datagrid1 table { border-collapse: collapse; text-align: center; width: 100%; }
+.datagrid1 {font: normal 13px/150% Arial, Helvetica, sans-serif; background: #fff; overflow: hidden; border: 0px solid #006699; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 1px; }
+.datagrid1 table td, .datagrid table th { padding: 2px 10px; }
+
+.menu {text-align: center;}
+.menu1 {text-align: left;}
+.menu2 {text-align: right;}
+.jobcardtop {text-align:left; font-size: small;}
+
+.bold {font-weight: bold;}
+
+button { 	width: 150px; 
+		color: #eee; 
+		text-transform: uppercase; 
+		margin-top: 10px;
+		background-color: #18a5cc;
+		border: none;
+		/* -- CSS3 Transition - define which property to animate (i.e. the shadow)  -- */
+		-webkit-transition: -webkit-box-shadow 0.3s linear;
+		/* -- CSS3 - Rounded Corners -- */
+		-moz-border-radius: 4px; 
+		-webkit-border-radius: 4px;
+		border-radius: 4px;		
+		/* -- CSS3 Shadow - create a shadow around each input element -- */ 
+		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#18a5cc), to(#0a85a8)); 
+		background: -moz-linear-gradient(25% 75% 90deg,#0a85a8, #18a5cc);} 
+	
+button:hover { 		
+		-webkit-box-shadow: 0px 0px 20px #555;
+		-moz-box-shadow: 0px 0px 20px #aaa; 
+		box-shadow: 0px 0px 20px #555;	
+		cursor:  pointer; } 
