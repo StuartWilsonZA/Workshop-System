@@ -6,239 +6,184 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="view/style/newjobcard.css">
-<title>Job Card Menu</title>
+<title>New Job Card</title>
 </head>
 <body>
-    <div class="jobcardtop">
+   <div class="jobcardtop">'
         <form method="post" action="#">
-            
-            <?php 
-            //Display Quick Link menu
-            include 'quickmenu.php';
-            ?>
-            
-            <h1>Auto-Part Workshop System</h1>
-              
-            <span style="font-weight: bold; float: right;">
-            <?php
-            //Show user that is currently logged in to the system.  
-            session_start();
-            $cname = $_SESSION['cname'];
-            echo "User: " . "<font color='red'>$cname</font>" ?>
-            </span>
-    
-            <br />
-            <div class="border0">
-            <div class="border1">          
-            <h2>New Job Card:</h2>
-            
-                        <label class="custnamelabel" for="jobcardnum">Job Card No:</label>
-                        <label class="custnamelabel" for="jobcardnum"><font color='red'>578</font></label>
-			<label class="custnamelabel" for="custname">To:</label>
-                        <input  type="text" class="custnametextbox" name="custname" value=""  /> 
-                        <br />
-                        <label class="custnamelabel" for="jobdate">Date:</label>
-			<input  class="custnametextbox" type="text" name="custphone"  value="" />  
-			<br />
-                       	<label class="custnamelabel" for="vehiclereg">Order No:</label>
-			<input  class="custnametextbox" type="text" name="vehiclereg"   value=""  /> 
-                        <br />
-                      
-        
-      
-            </div>
-             <div class="border2">           
-            <h2>Forklift Details:</h2>
-           
-			<label class="custnamelabel" for="forkliftmake">Make:</label>
-                        <input  type="text" class="custnametextbox" name="forkliftmake" value=""  /> 
-                        <br />
-                        <label class="custnamelabel" for="forkliftmodel">Model:</label>
-			<input  class="custnametextbox" type="text" name="custphone"  value="" />  
-			<br />
-                       	<label class="custnamelabel" for="forkliftserial">Serial No:</label>
-			<input  class="custnametextbox" type="text" name="forkliftserial"   value=""  /> 
-                        <br />
-                        <label class="custnamelabel" for="forklifthours">Hours:</label>
-			<input  class="custnametextbox" type="text" name="forklifhours"   value=""  /> 
-            
-             </div>
-            </div>
-           
-             <div class="border5">          
-            <label class="partsheading" for="qtypartno1">Check List</label>
+           <?php
+           session_start();
+           $cname = $_SESSION['cname'];
+           $connection = mysqli_connect('localhost', 'root', '','warehouse');
+            if (mysqli_connect_errno()) {
+                echo "Failed to connect to MySQL: " . mysqli_connect_error();}    //sqli query
+                $mysql_query = "SELECT * FROM `login` WHERE firstname='$cname'";//mysql
+                $result = mysqli_query($connection,$mysql_query);//mysqli 
+                $user = (mysqli_num_rows($result)==1) ? mysqli_fetch_assoc($result) : null;
+                $count = mysqli_num_rows($result);//not used
+                if ($user['jobbook']=='yes'){
                 
-            <label class="partsheading" for="qtypartno1">Body :</label>
-            <br />
-            <label class="custnamelabel" for="forkliftmake">Tyre Condition</label>
-            <br />
-            <label class="custnamelabel" for="forkliftmake">Lights</label>           
-            <br />
-            <label class="custnamelabel" for="forkliftmake">Horn and Guages</label>
-            <br />
-            <label class="custnamelabel" for="forkliftmake">Key Switch</label>
-            <br />          
-	    <label class="custnamelabel" for="forkliftmake">Ready for Service</label>
-            <br />	
-          
-            <label class="custnamelabel" for="forkliftmake">Tyre Condition</label>
-            <br />
-            <label class="custnamelabel" for="forkliftmake">Lights</label>           
-            <br />
-            <label class="custnamelabel" for="forkliftmake">Horn and Guages</label>
-            <br />
-            <label class="custnamelabel" for="forkliftmake">Key Switch</label>
-            <br />          
-	    <label class="custnamelabel" for="forkliftmake">Ready for Service</label>
-            <br />	            
-                      
-        
-      
-            </div> 
-            <div class="border3">          
-                 <h2>Description Of Work Done:</h2>
-                
-           
-			
-                        <textarea rows="6" cols="78" name="notes"></textarea>
-                        <br />
-            </div>
+                echo '<h1>Auto-Part Workshop System</h1>'; 
+                echo '<span style="font-weight: bold; float: right;">';  
+
+                echo "User: " . "<font color='red'>$cname</font>";
+                echo '</span>';
+                echo '<br />';
+                echo '<div class="border0">';
+                echo '<div class="border1">';          
+                echo '<h2>New Job Card:</h2>';
             
-            <div class="border4">     
-                <label class="partsheading" for="qtypartno1">Parts Used :</label><label class="qtyheading" for="qtypartno1">Qty</label><label class="amountheading" for="qtypartno1">COST excl. VAT</label>
-                        <br />
-                      
-                        <input type="text" class="partstextbox" name="partno1" value=""  />
-                        <label class="quanlabel" for="qtypartno1">Qty :</label>
-                        <input  type="text" class="qtytextbox" name="qtypartno1" value=""  />  
-                        <input type="text" class="amounttextbox" name="partno1" value=""  />
-                        
-                        <br />
-			<input type="text" class="partstextbox" name="partno1" value=""  />
-                        <label class="quanlabel" for="qtypartno1">Qty :</label>
-                        <input  type="text" class="qtytextbox" name="qtypartno1" value=""  />  
-                        <input type="text" class="amounttextbox" name="partno1" value=""  />
-                        
-                        <br />
-                        <input type="text" class="partstextbox" name="partno2" value=""  />
-                        <label class="quanlabel" for="qtypartno2">Qty :</label>
-                        <input type="text" class="qtytextbox" name="qtypartno2" value=""  />  
-                        <input type="text" class="amounttextbox" name="partno1" value=""  />
-                       
-                        <br />
-                        <input type="text" class="partstextbox" name="partno1" value=""  />
-                        <label class="quanlabel" for="qtypartno1">Qty :</label>
-                        <input  type="text" class="qtytextbox" name="qtypartno1" value=""  />  
-                        <input type="text" class="amounttextbox" name="partno1" value=""  />
-                       
-                        <br />
-			<input type="text" class="partstextbox"" name="partno3" value=""  />
-                        <label class="quanlabel" for="qtypartno3">Qty :</label>
-                        <input type="text" class="qtytextbox" name="qtypartno3" value=""  />  
-                        <input type="text" class="amounttextbox" name="partno1" value=""  />
-                        
-                        <br />
-                        <input type="text" class="partstextbox" name="partno1" value=""  />
-                        <label class="quanlabel" for="qtypartno1">Qty :</label>
-                        <input  type="text" class="qtytextbox" name="qtypartno1" value=""  />  
-                        <input type="text" class="amounttextbox" name="partno1" value=""  />
-                       
-                        <br />
-			<input type="text" class="partstextbox" name="partno4" value=""  />
-                        <label class="quanlabel" for="qtypartno4">Qty :</label>
-                        <input type="text" class="qtytextbox" name="qtypartno4" value=""  />  
-                        <input type="text" class="amounttextbox" name="partno1" value=""  />
-                       
-                        <br />
-                        
-             </div>      
-                        <br />
-			<input class="submit" type="submit" name="submit" value="Create Job Card">		
-                        <br />
-                        <input class="submit" type="submit" name="jobcardmenu" value="Back" >
-		
+                echo '<label class="custnamelabel" for="jobcardnum">Job Card No:</label>';  
+                echo '<label class="custnamelabel" for="jobcardnumshow"><font color="red">578</font></label>';
+                echo '<label class="custnamelabel" for="custname">To:</label>';
+                echo '<input type="text" class="custnametextbox" name="custname" value="" />';
+                echo '<br />';
+                echo '<label class="custnamelabel" for="jobdate">Date:</label>';
+                echo '<input class="custnametextbox" type="text" name="custphone" value="" />';
+                echo '<br />';
+                echo '<label class="custnamelabel" for="vehiclereg">Order No:</label>';
+                echo '<input class="custnametextbox" type="text" name="vehiclereg" value="" />';
+                echo '<br />';
+                echo '</div>';
+                
+                echo '<div class="border2">';
+                echo '<h2>Forklift Details:</h2>';
+                echo '<label class="custnamelabel" for="forkliftmake">Make:</label>';
+                echo '<input type="text" class="custnametextbox" name="forkliftmake" value="" />';
+                echo '<br />';
+                echo '<label class="custnamelabel" for="forkliftmodel">Model:</label>';
+                echo '<input class="custnametextbox" type="text" name="custphone" value="" />';
+                echo '<br />';
+                echo '<label class="custnamelabel" for="forkliftserial">Serial No:</label>';
+                echo '<input class="custnametextbox" type="text" name="forkliftserial" value="" />'; 
+                echo '<br />';
+                echo '<label class="custnamelabel" for="forklifthours">Hours:</label>'; 
+                echo '<input class="custnametextbox" type="text" name="forklifhours" value="" />'; 
+                echo '</div>';
+                echo '</div>';
+                
+                echo '<div class="border5">';
+                echo '<label class="partsheading" for="checklist">Check List</label>';
+                echo '<br />';
+                echo '<br />';
+                echo '<label class="partsheading" for="forkliftbody">Body :</label>';
+                echo '<br />';
+                echo '<label class="custnamelabel" for="forklifttyre">Tyre Condition</label><input type="checkbox" name="tyrecondcheck" value="tyrecond" />';
+                echo '<br />';
+                echo '<label class="custnamelabel" for="forkliftlight">Lights</label><input type="checkbox" name="lightcheck" value="lightcheck" />'; 
+                echo '<br />'; 
+                echo '<label class="custnamelabel" for="forklifthorn">Horn & Guages</label><input type="checkbox" name="hornguage" value="hornguage" />'; 
+                echo '<br />'; 
+                echo '<label class="custnamelabel" for="forkliftkey">Key Switch</label><input type="checkbox" name="keyswitchcheck" value="keyswitch" />'; 
+                echo '<br />'; 
+                echo '<label class="custnamelabel" for="forkliftservice">Service Ready</label><input type="checkbox" name="serviceready" value="serviceready" />'; 
+                echo '<br />'; 
+                echo '<br />'; 
+                
+                echo '<label class="partsheading" for="drivetrain">Drivetrain :</label>';
+                echo '<br />'; 
+                echo '<label class="custnamelabel" for="forkliftoillvl">Oil Level</label><input type="checkbox" name="oillvlcheck" value="oillvlcheck" />'; 
+                echo '<br />';  
+                echo '<label class="custnamelabel" for="forkliftleaks">Oil Leaks</label><input type="checkbox" name="oilleakcheck" value="oilleak" />';  
+                echo '<br />';  
+                echo '<label class="custnamelabel" for="forkliftfan">Fan</label><input type="checkbox" name="fancheck" value="fancheck" />';  
+                echo '<br />';  
+                echo '<label class="custnamelabel" for="forkliftvbelt">V-Belt & Hoses</label><input type="checkbox" name="vbeltheck" value="vbeltcheck" />';  
+                echo '<br />';  
+                echo '<label class="custnamelabel" for="forkliftwater">Water Condition</label><input type="checkbox" name="watercheck" value="watercheck" />';  
+                echo '<br />';  
+                echo '<label class="custnamelabel" for="forkliftrad">Radiator Condition</label><input type="checkbox" name="radcheck" value="radcheck" />';  
+                echo '<br />';   
+                
+                echo '<div class="checklist">';
+                echo '<label class="partsheading" for="drivetrain">Hydraulics :</label>';
+                echo '<br />'; 
+                echo '<label class="custnamelabel" for="forkliftoilleak">Oil Leaks</label><input type="checkbox" name="oilleakcheck" value="oilleakcheck" />'; 
+                echo '<br />';  
+                echo '<label class="custnamelabel" for="forklifthose">Hose Condition</label><input type="checkbox" name="hosecheck" value="hosecheck" />';  
+                echo '<br />';  
+                echo '<label class="custnamelabel" for="forkliftfork">Fork Condition</label><input type="checkbox" name="forkcheck" value="forkcheck" />';  
+                echo '<br />';  
+                echo '<label class="custnamelabel" for="forkliftground">Fork Ground Clearence</label><input type="checkbox" name="groundcheck" value="vbeltcheck" />';  
+                echo '<br />';  
+                echo '<label class="custnamelabel" for="forkliftcarrage">Carrage Loose</label><input type="checkbox" name="carragecheck" value="watercheck" />';  
+                echo '<br />';  
+                echo '<label class="custnamelabel" for="forklifload">Load Guard Condition</label><input type="checkbox" name="loadcheck" value="radcheck" />';  
+                echo '<br />';  
+                echo '<br />'; 
+                
+                
+                echo '<label class="partsheading" for="drivetrain">Operation :</label>';
+                echo '<br />'; 
+                echo '<label class="custnamelabel" for="forkliftoilleak">Oil Leaks</label><input type="checkbox" name="oilleakcheck" value="oilleakcheck" />'; 
+                echo '<br />';  
+                echo '<label class="custnamelabel" for="forklifthose">Hose Condition</label><input type="checkbox" name="hosecheck" value="hosecheck" />';  
+                echo '<br />';  
+                echo '<label class="custnamelabel" for="forkliftfork">Fork Condition</label><input type="checkbox" name="forkcheck" value="forkcheck" />';  
+                echo '<br />';  
+                echo '<label class="custnamelabel" for="forkliftground">Fork Ground Clearence</label><input type="checkbox" name="groundcheck" value="vbeltcheck" />';  
+                echo '<br />';  
+                echo '<label class="custnamelabel" for="forkliftcarrage">Carrage Loose</label><input type="checkbox" name="carragecheck" value="watercheck" />';  
+                echo '<br />';  
+                echo '<label class="custnamelabel" for="forklifload">Load Guard Condition</label><input type="checkbox" name="loadcheck" value="radcheck" />';  
+                echo '<br />';  
+                
+                echo '</div>';
+                
+                echo '</div> ';  
+                
+                echo '<div class="border3">';  
+                echo '<h2>Description Of Work Done:</h2>';  
+                echo '<textarea rows="6" cols="78" name="notes"></textarea>';  
+                echo '<br />';  
+                echo '</div>';  
+                echo '<br />';  
+                
+                echo '<div class="border4">'; 
+                echo '<label class="partsheading" for="parthead">Parts Used :</label><label class="qtyheading" for="qtypart">Qty</label><label class="amountheading" for="amounthead">COST excl. VAT</label>'; 
+                echo '<br />'; 
+                echo '<input type="text" class="partstextbox" name="partno1" value=""/>'; 
+                echo '<label class="quanlabel" for="qtypartno1">Qty :</label>'; 
+                echo '<input type="text" class="qtytextbox" name="qtypartno1" value=""/>';
+                echo '<input type="text" class="amounttextbox" name="costpartno1" value=""/>'; 
+                echo '<br />'; 
+                echo '<input type="text" class="partstextbox" name="partno2" value=""/>'; 
+                echo '<label class="quanlabel" for="qtypartno2">Qty :</label>'; 
+                echo '<input type="text" class="qtytextbox" name="qtypartno2" value=""/>';  
+                echo '<input type="text" class="amounttextbox" name="costpartno2" value=""/>';  
+                echo '<br/>';
+                echo '<input type="text" class="partstextbox" name="partno3" value=""/>';
+                echo '<label class="quanlabel" for="qtypartno3">Qty :</label>';
+                echo '<input type="text" class="qtytextbox" name="qtypartno3" value=""/>';
+                echo '<input type="text" class="amounttextbox" name="costpartno3" value=""/>';
+                echo '<br />';
+                echo '<input type="text" class="partstextbox" name="partno4" value=""/>';
+                echo '<label class="quanlabel" for="qtypartno4">Qty :</label>';
+                echo '<input type="text" class="qtytextbox" name="qtypartno4" value=""/>';
+                echo '<input type="text" class="amounttextbox" name="costpartno4" value=""/>';
+                echo '<br />';
+                echo '<input type="text" class="partstextbox" name="partno5" value=""/>';
+                echo '<label class="quanlabel" for="qtypartno5">Qty :</label>';
+                echo '<input type="text" class="qtytextbox" name="qtypartno5" value=""/>';
+                echo '<input type="text" class="amounttextbox" name="costpartno5" value=""/>';
+                echo '<br />';
+                echo '<input type="text" class="partstextbox" name="partno6" value=""/>';
+                echo '<label class="quanlabel" for="qtypartno6">Qty :</label>';
+                echo '<input type="text" class="qtytextbox" name="qtypartno6" value=""/>';
+                echo '<input type="text" class="amounttextbox" name="costpartno6" value=""/>';
+                echo '<br />';
+                echo '<input type="text" class="partstextbox" name="partno7" value=""/>';
+                echo '<label class="quanlabel" for="qtypartno7">Qty :</label>';
+                echo '<input type="text" class="qtytextbox" name="qtypartno7" value=""/>';
+                echo '<input type="text" class="amounttextbox" name="costpartno7" value=""/>';
+                echo '<br />';}
+                echo '</div>';
+                ?>
+                <input class="submit" type="button" onclick="location.href='jobbookmenu.php';" name="jobbook" value="Job Book Menu">
+                <br />
+                <input class="submit" type="button" onclick="location.href='index.php';" name="logout" value="Exit"> 
 
-     <?php
-     //MAIN MENU selection
-    if (isset($_POST['submit'])) {
-        // Create connection to db.
-        $connection = mysqli_connect('localhost', 'root', '','stock');
-        //check connecion
-    if (mysqli_connect_errno()) {
-        echo "Failed to connect to MySQL: " . mysqli_connect_error();}
-     //checks if menu button was clicked.
-   
-     
-     $custname = $_POST['custname']; 
-     $custphone = $_POST['custphone'];
-     $vehiclereg = $_POST['vehiclereg'];
-     $partno1 = $_POST['partno1'];
-     $qtypartno1 = $_POST['qtypartno1'];
-     $partno2 = $_POST['partno2'];
-     $qtypartno2 = $_POST['qtypartno2'];
-     $partno3 = $_POST['partno3'];
-     $qtypartno3 = $_POST['qtypartno3'];
-     $partno4 = $_POST['partno4'];
-     $qtypartno4 = $_POST['qtypartno4'];
-     $dateopen = date("Y/m/d");
-     $datecompleted = "Not Complete";
-     $notes = $_POST['notes'];
-     if(empty($_POST['custname']) and empty($_POST['custphone']) and empty($_POST['vehiclereg']))  {
-             echo "<br />";
-             echo "<br />";
-             echo "<font color='red'>ERROR! Please Complete ALL of the Feilds & Try Again...</font><img src='tdown.jpg' alt='tdown' style='width:93px;height:92px;'>"; 
-     echo "<br />";}
-     else{
-// check parts database if parts enetered exist.
-     $query = "SELECT * FROM `parts` WHERE partnumber = '$partno1' or partnumber = '$partno1' or partnumber = '$partno2'or partnumber = '$partno3'or partnumber = '$partno4'";
-     $result = mysqli_query($connection,$query) or die(mysql_error());
-     if(mysqli_num_rows($result)== 0){
-           echo "<br />";
-           echo "<br />";
-           echo "<font color='red'>ERROR! No Such part  numbers in the database...</font><img src='tdown.jpg' alt='tdown' style='width:93px;height:92px;'>"; 
-            echo "<br />"; }
-    
-     if(mysqli_num_rows($result) > 0){ 
-     //update the parts system
-     $query = "SELECT * FROM `parts` WHERE partnumber = '$partno1' or partnumber = '$partno1' or partnumber = '$partno2'or partnumber = '$partno3'or partnumber = '$partno4'";
-     $result = mysqli_query($connection,$query) or die(mysql_error());   
-     
-     $subquery = "UPDATE `parts` SET quantity = quantity - '$qtypartno1' WHERE partnumber = '$partno1'";
-     $result = mysqli_query($connection,$subquery) or die(mysql_error());
-     $subquery1 = "UPDATE `parts` SET quantity = quantity - '$qtypartno2' WHERE partnumber = '$partno2'";
-     $result1 = mysqli_query($connection,$subquery1) or die(mysql_error());
-     $subquery2 = "UPDATE `parts` SET quantity = quantity - '$qtypartno3' WHERE partnumber = '$partno3'";
-     $result2 = mysqli_query($connection,$subquery2) or die(mysql_error());
-     $subquery3 = "UPDATE `parts` SET quantity = quantity - '$qtypartno4' WHERE partnumber = '$partno4'";
-     $result3 = mysqli_query($connection,$subquery3) or die(mysql_error());
-     
-     
-    // Insert data into jobcards 
-     $sql="INSERT INTO jobcards(custname, custphone, vehiclereg, partno1, qtypartno1, partno2, qtypartno2, partno3, qtypartno3, partno4, qtypartno4, notes, datecreated, datecompleted) VALUES('$custname', '$custphone', '$vehiclereg', '$partno1', '$qtypartno1', '$partno2', '$qtypartno2', '$partno3', '$qtypartno3', '$partno4', '$qtypartno4', '$notes', '$dateopen','$datecompleted')";
-     $result=mysqli_query($connection,$sql);
-     // if successfully insert data into database, displays message "Successful". 
-     if($result){
-         echo '<br />'; 
-          echo '<br />';    
-     echo "<font color='green'>Job Card Created Successfully</font><img src='tup.jpg' alt='tup' style='width:93px;height:92px;'>";
-     
-        }
+        </form>
 
-     else {
-          echo '<br />';
-           echo '<br />';    
-     echo "<font color='red'>ERROR... Please Try Again</font><img src='tdown.jpg' alt='tdown' style='width:93px;height:92px;'>";
-        }
-    }}}
-    if (isset($_POST['jobcardmenu'])) {
-        header("Location: jobbookmenu.php");} 
-   
-   
-     
-     
-     
-     ?>
-  </form>
-    </div>
-    </body>
+</body>
 </html>
