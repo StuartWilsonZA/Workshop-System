@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="view/style/mystyle.css">
-<title>Main Menu</title>
+<title>Job Card Menu</title>
 </head>
 <body>
     <div class="menu">
@@ -32,7 +32,7 @@
             <img src="view/images/forklift.jpg" alt="companysmall" style="width:212px;height:174px;float: left;">   
             <img src="view/images/companysmalljpg.jpg" alt="companysmall" style="width:332px;height:185px;float: right;">
              
-            <h2>Main Menu</h2>
+            <h2>Job Card Menu</h2>
             <?php
             
             // Create connection to db.
@@ -48,17 +48,13 @@
                 $user = (mysqli_num_rows($result)==1) ? mysqli_fetch_assoc($result) : null ;
                 $count = mysqli_num_rows($result);//not used
                 
-                //Display buttons
+                // New Job Card
                 if ($user['jobbook']=='yes'){
-                echo '<input class="submit" type="submit" name="jobbookmenu" value="Job Book">';  
+                echo '<input class="submit" type="submit" name="newjobcard" value="New Job Card">';  
                 echo '<br />';}
-                //Job Card Menu
+                //Main Menu Button
                 if ($user['jobbook']=='yes'){
-                echo '<input class="submit" type="submit" name="jobcardmenu" value="Job Cards">';  
-                echo '<br />';}
-                //Admin Button
-                if ($user['admin']=='yes'){
-                echo '<input class="submit" type="submit" name="admin" value="Administration">'; 
+                echo '<input class="submit" type="submit" name="mainmenu" value="Main Menu">'; 
                 echo '<br />';}
                 //Exit Button
                 if ($user['logout']=='yes'){
@@ -74,13 +70,12 @@
             //checks if menu button was clicked.
     
             if (isset($_POST['logout'])) {
-            header("Location: index.php");}
-            if (isset($_POST['admin'])) {
-            header("Location: admin.php");}
-            if (isset($_POST['jobbookmenu'])) {
-            header("Location: jobbookmenu.php");}
-            if (isset($_POST['jobcardmenu'])) {
-            header("Location: jobcardmenu.php");}
+            header("Location: index.php"); exit;}
+            if (isset($_POST['mainmenu'])) {
+            header("Location: mainmenu.php");exit;}
+            if (isset($_POST['newjobcard'])) {
+            header("Location: newjobcard.php"); exit;}
+           
             
             }
                 ?>
@@ -94,3 +89,5 @@
      </form>     
     </body>
 </html>
+
+

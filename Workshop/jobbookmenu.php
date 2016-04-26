@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="view/style/mystyle.css">
-<title>Job Card Menu</title>
+<title>Job Book Menu</title>
 </head>
 <body>
     <div class="menu">
@@ -48,11 +48,12 @@
                 $user = (mysqli_num_rows($result)==1) ? mysqli_fetch_assoc($result) : null ;
                 $count = mysqli_num_rows($result);//not used
                 
-                //Display buttons
+                //Create new Job buttons
                 if ($user['jobbook']=='yes'){
-                echo '<input class="submit" type="submit" name="newjobcard" value="New Job Card">';  
+                echo '<input class="submit" type="submit" name="newjob" value="Create New Job">';  
                 echo '<br />';}
-                //Admin Button
+               
+                //Main Menu Button
                 if ($user['jobbook']=='yes'){
                 echo '<input class="submit" type="submit" name="mainmenu" value="Main Menu">'; 
                 echo '<br />';}
@@ -70,11 +71,12 @@
             //checks if menu button was clicked.
     
             if (isset($_POST['logout'])) {
-            header("Location: index.php");}
+            header("Location: index.php"); exit;}
             if (isset($_POST['mainmenu'])) {
-            header("Location: mainmenu.php");}
-            if (isset($_POST['newjobcard'])) {
-            header("Location: newjobcard.php");}
+            header("Location: mainmenu.php");exit;}
+            if (isset($_POST['newjob'])) {
+            header("Location: newjob.php"); exit;}
+            
             }
                 ?>
             

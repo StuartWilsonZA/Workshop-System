@@ -11,11 +11,16 @@
 <body>
    <div class="jobcardtop">'
         <form method="post" action="#">
-           <?php
+           
+            <?php
            session_start();
            $cname = $_SESSION['cname'];
            $connection = mysqli_connect('localhost', 'root', '','warehouse');
-            if (mysqli_connect_errno()) {
+           include 'quickmenu.php';
+           
+           
+           
+           if (mysqli_connect_errno()) {
                 echo "Failed to connect to MySQL: " . mysqli_connect_error();}    //sqli query
                 $mysql_query = "SELECT * FROM `login` WHERE firstname='$cname'";//mysql
                 $result = mysqli_query($connection,$mysql_query);//mysqli 
@@ -205,7 +210,7 @@
                 echo '</div>';
                 
                 ?>
-                <input class="submit" type="button" onclick="location.href='jobbookmenu.php';" name="jobbook" value="Job Book Menu">
+                <input class="submit" type="button" onclick="location.href='jobcardmenu.php';" name="jobbook" value="Job Card Menu">
                 <br />
                 <input class="submit" type="button" onclick="location.href='index.php';" name="logout" value="Exit"> 
 
