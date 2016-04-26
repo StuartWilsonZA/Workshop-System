@@ -115,17 +115,17 @@
                 
                 echo '<label class="partsheading" for="drivetrain">Operation :</label>';
                 echo '<br />'; 
-                echo '<label class="custnamelabel" for="forkliftoilleak">Oil Leaks</label><input type="checkbox" name="oilleakcheck" value="oilleakcheck" />'; 
+                echo '<label class="custnamelabel" for="forkliftbreaks">Break Effiecny</label><input type="checkbox" name="brakecheck" value="breakcheck" />'; 
                 echo '<br />';  
-                echo '<label class="custnamelabel" for="forklifthose">Hose Condition</label><input type="checkbox" name="hosecheck" value="hosecheck" />';  
+                echo '<label class="custnamelabel" for="forkliftinch">Inching Setting</label><input type="checkbox" name="inchcheck" value="inchcheck" />';  
                 echo '<br />';  
-                echo '<label class="custnamelabel" for="forkliftfork">Fork Condition</label><input type="checkbox" name="forkcheck" value="forkcheck" />';  
+                echo '<label class="custnamelabel" for="forklifhydraulic">Hydraulics & Steering</label><input type="checkbox" name="hydraulicscheck" value="hydraulicscheck" />';  
                 echo '<br />';  
-                echo '<label class="custnamelabel" for="forkliftground">Fork Ground Clearence</label><input type="checkbox" name="groundcheck" value="vbeltcheck" />';  
+                echo '<label class="custnamelabel" for="forklifttrans">Transmission Strength</label><input type="checkbox" name="transcheck" value="transcheck" />';  
                 echo '<br />';  
-                echo '<label class="custnamelabel" for="forkliftcarrage">Carrage Loose</label><input type="checkbox" name="carragecheck" value="watercheck" />';  
+                echo '<label class="custnamelabel" for="forkliftstarting">Hard Starting</label><input type="checkbox" name="hardcheck" value="hardcheck" />';  
                 echo '<br />';  
-                echo '<label class="custnamelabel" for="forklifload">Load Guard Condition</label><input type="checkbox" name="loadcheck" value="radcheck" />';  
+                echo '<label class="custnamelabel" for="forkliftdriver">Driver Complaints</label><input type="checkbox" name="drivercheck" value="drivercheck" />';  
                 echo '<br />';  
                 
                 echo '</div>';
@@ -178,6 +178,32 @@
                 echo '<input type="text" class="amounttextbox" name="costpartno7" value=""/>';
                 echo '<br />';}
                 echo '</div>';
+ 
+                echo '<div class="border6">';  
+                echo '<label class="custnamelabel" for="custname">Labour:</label>';
+                echo '<input type="text" class="qtytextbox" name="custname" value="" />';
+                echo '<br />';
+                echo '<label class="custnamelabel" for="jobdate">Trips Made:</label>';
+                echo '<input class="qtytextbox" type="text" name="custphone" value="" />';
+                echo '<br />';
+                echo '</div>';
+                
+                echo '<div class="border7">';  
+                echo '<label class="signedlabel" for="custname">Customer Signed:</label>';
+                echo '<input type="checkbox" name="drivercheck" value="drivercheck" />';
+                echo '<br />';
+                echo '<label class="signedlabel" for="jobdate">Technician Signed:</label>';
+                echo '<input type="checkbox" name="drivercheck" value="drivercheck" />';
+                echo '<br />';
+                echo '</div>';
+                
+                echo '<div class="border8">';  
+                echo '<label class="custnamelabel" for="custname">Remarks:</label>';
+                echo '<textarea rows="3" cols="75" name="notes"></textarea>'; 
+                echo '<br />';
+                
+                echo '</div>';
+                
                 ?>
                 <input class="submit" type="button" onclick="location.href='jobbookmenu.php';" name="jobbook" value="Job Book Menu">
                 <br />
