@@ -24,8 +24,22 @@
             //Show user that is currently logged in to the system.  
             session_start();
             $cname = $_SESSION['cname'];
-            echo "User: " . "<font color='red'>$cname</font>" ?>
-            </span>
+            echo "User: " . "<font color='red'>$cname</font>" ;
+            echo'</span>';
+            $db = new mysqli('localhost', 'root', '', 'warehouse');
+                if (mysqli_connect_errno()) {
+                echo "Failed to connect to MySQL: " . mysqli_connect_error();} 
+                $sql = "SELECT MAX(job_no) FROM jobbook";
+                $result = $db->query($sql);
+                $row = $result->fetch_assoc();
+                $job_no = $row['MAX(job_no)'] ;
+                //$job_no = $job_no;
+                echo '<div class="lastjob">';
+                echo " Last Job No Created: " . "<font color='red'>$job_no</font>";
+                echo '</div>';
+                ?>
+            
+            
               
               
             <br />
@@ -52,7 +66,10 @@
                 if ($user['jobbook']=='yes'){
                 echo '<input class="submit" type="submit" name="newjob" value="Create New Job">';  
                 echo '<br />';}
-               
+                //Update Job 
+                if ($user['jobbook']=='yes'){
+                echo '<input class="submit" type="submit" name="updatejob" value="Update Job">'; 
+                echo '<br />';}
                 //Main Menu Button
                 if ($user['jobbook']=='yes'){
                 echo '<input class="submit" type="submit" name="mainmenu" value="Main Menu">'; 

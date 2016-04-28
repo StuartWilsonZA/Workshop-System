@@ -10,11 +10,14 @@
 </head>
 <body>
    <div class="jobcardtop">'
-        <form method="post" action="#">
+       <form method="post" action="">
            
             <?php
            session_start();
            $cname = $_SESSION['cname'];
+          
+           
+           
            $connection = mysqli_connect('localhost', 'root', '','warehouse');
            
            include 'quickmenu.php';
@@ -31,6 +34,19 @@
                 echo '<span style="font-weight: bold; float: right;">';  
 
                 echo "User: " . "<font color='red'>$cname</font>";
+                 echo'</span>';
+            $db = new mysqli('localhost', 'root', '', 'warehouse');
+                if (mysqli_connect_errno()) {
+                echo "Failed to connect to MySQL: " . mysqli_connect_error();} 
+                $sql = "SELECT MAX(job_no) FROM jobbook";
+                $result = $db->query($sql);
+                $row = $result->fetch_assoc();
+                $job_no = $row['MAX(job_no)'] ;
+                //$job_no = $job_no;
+                echo '<div class="lastjob">';
+                echo " Last Job No Created: " . "<font color='red'>$job_no</font>";
+                echo '</div>';
+                
                 echo '</span>';
                 echo '<br />';
               
@@ -41,11 +57,13 @@
                 $db = new mysqli('localhost', 'root', '', 'warehouse');
                 if (mysqli_connect_errno()) {
                 echo "Failed to connect to MySQL: " . mysqli_connect_error();} 
-                $sql = "SHOW TABLE STATUS LIKE 'jobbook'";
-                $result=$db->query($sql);
+                $sql = "SELECT MAX(job_no) FROM jobbook";
+                $result = $db->query($sql);
                 $row = $result->fetch_assoc();
-                echo '<label class="custnamelabel" for="jobnumlabel">Job No:</label>';  
-                echo '<label class="custnamelabel" for="jobnumshow"><font color="red">'.$row["Auto_increment"].'</font></label>';
+                $job_no = $row['MAX(job_no)'] + 1 ;
+                //$job_no = $job_no;
+                echo '<label class="jobnumlabel" for="jobnumlabel">New Job No:</label>';  
+                echo '<label class="jobnumlabel" for="jobnumshow"><font color="red">'.$job_no.'</font></label>';
                 echo '<br />';
                 
                 echo '<label class="custnamelabel" for="jobcodelabel">Job Code:</label>';
@@ -62,31 +80,53 @@
                 echo '<br />';
                 
                 echo '<label class="custnamelabel" for="jobdetaillabel">Job Detail:</label>';
-                echo '<textarea rows="2" cols="28" name="notes"></textarea>';
+                echo '<textarea rows="2" cols="28" name="job_detail"></textarea>';
                 echo '<br />';
                 
-                echo '<label class="custnamelabel" for="cust_orderno">Order number:</label>';
-                echo '<input class="custnametextbox" type="text" name="cust_orderno" value="" />';
-                echo '<br />';
-                
-                echo '<label class="custnamelabel" for="job_amountlabel">Amount:</label>';
-                echo '<input class="custnametextbox" type="text" name="job_amount" value="" />';
-                echo '<br />';
-                
-                echo '<label class="custnamelabel" for="job_invoicelabel">Invoice No:</label>';
-                echo '<input class="custnametextbox" type="text" name="job_invoice" value="" />';
-                echo '<br />';
+              
                 
                 echo '</div>';}
                
                 ?>
             <div class="newjobmenu">    
-            <input class="submit" type="button" onclick="location.href='jobbookmenu.php';" name="jobbook" value="Job Book Menu">
+            <input class="submit" type="submit" name="jobbook" value="Create Job">
             <br />
-            <input class="submit" type="button" onclick="location.href='index.php';" name="logout" value="Exit"> 
+            <input class="submit" type="button" onclick="location.href='jobbookmenu.php';" name="logout" value="Back"> 
             </div>
-        </form>
+       </form>
   
 </body>
-</html>
+<?php
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            //checks if menu button was clicked.
+    
+            if (isset($_POST['jobbook'])) {
+                $job_code = $_POST['jobcode'];
+                $assigned_to = $_POST['assigned_to'];
+                $cust_name = $_POST['cust_name'];
+                $created_date = date("d/m/Y");
+                $job_detail = $_POST['job_detail'];
+                
+                $con = new mysqli('localhost','root','','warehouse');
+                if($con -> connect_error){
+                    die("Connection Faild" . $con -> connect_error);
+                }
+                $sql = "INSERT INTO jobbook (job_code, assigned_to, created_date, customer, job_detail)"
+                        . "VALUES ( '$job_code', '$assigned_to','$created_date', '$cust_name', '$job_detail')";
+                        
+                
+                if($con->query($sql) === TRUE){
+                   
+                    header('Location: jobbookmenu.php');
+                                        exit();
+                }else {
+                    echo 'Error:' . $sql . "<br />" . $con->error;
+                }       
+                
+                
+                
+            }}
+?>
+   
+   </html>
 

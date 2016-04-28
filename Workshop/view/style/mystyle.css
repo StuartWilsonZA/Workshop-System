@@ -60,6 +60,7 @@ h2 {            color: #555; margin: 0 0 20px 0;}
 label {width: 200px;display: inline-block;font-size: 20px;color: #666; }
 h1 {color: #18a5cc;}
 
+.lastjob {border: 0px solid #006699;margin-right:700px; font-weight: bold; text-align: left; }
 
 .datagrid table { border-collapse: collapse; text-align: center; width: 100%; }
 .datagrid {font: normal 13px/150% Arial, Helvetica, sans-serif; background: #fff; overflow: hidden; border: 1px solid #006699; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 1px; }

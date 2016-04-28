@@ -87,7 +87,7 @@ label {width: 100px;display: inline-block;font-size: small;color: #666; }
 .border4 {border: 1px solid #808080; padding: 5px; width: 579px; margin-top:-10px;  }
 .border5 {border: 1px solid #808080; padding: 5px; margin-top:1px; text-align: left; margin-left:595px;margin-bottom:-117px;  }
 
-.newjob1 {border: 1px solid #808080; padding: 5px; width: 579px;margin-left:0px; float: left;margin-top:2px; }
+.newjob1 {border: 1px solid #808080; padding: 5px; width: 350px;margin-left:0px; float: left;margin-top:2px; }
 .newjobmenu {border: 0px solid #808080; padding: 5px; width: 579px;margin-left:0px; float: left;margin-top:2px; }
 
 .border6 {border: 1px solid #808080; padding: 5px; width: 325px; margin-top:5px; padding-top:17px; padding-bottom: 17px   }
@@ -96,9 +96,10 @@ label {width: 100px;display: inline-block;font-size: small;color: #666; }
 .border8 {border: 1px solid #808080; padding: 3px; width: 552px; margin-top:-60px; margin-left:340px  }
 
 .checklist {border: 0px solid #808080; padding: 5px; margin-top:1px; text-align: left; margin-left:130px;margin-bottom:80px;margin-top:-273px;  }
-
+.jobnumlabel {width:100px;font-weight: bold;}
+.lastjob {border: 0px solid #006699;margin-right:700px; font-weight: bold; text-align: left; }
 .quanlabel {width: 30px;display: inline-block;font-size: small;color: #666; }
-
+.lastjob {text-align: left;}
 
 .datagrid table { border-collapse: collapse; text-align: center; width: 100%; }
 .datagrid {font: normal 13px/150% Arial, Helvetica, sans-serif; background: #fff; overflow: hidden; border: 1px solid #006699; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 1px; }
